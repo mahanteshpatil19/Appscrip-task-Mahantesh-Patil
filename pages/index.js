@@ -8,6 +8,12 @@ import Footer from "../components/Footer";
 
 import productsData from "../data/products"; 
 
+const sortedProducts = [...products].sort((a, b) => {
+  if (sortBy === "price-low") return a.price - b.price;
+  if (sortBy === "price-high") return b.price - a.price;
+  return 0; 
+});
+
 export default function Home({ products }) {
   const [showFilter, setShowFilter] = useState(true);
 
@@ -35,7 +41,28 @@ export default function Home({ products }) {
     {showFilter ? "HIDE FILTER" : "SHOW FILTER"}
   </button>
 
-  <span className="recommended">RECOMMENDED ▾</span>
+<div className="recommended-wrapper">
+  <button
+    className="recommended-btn"
+    onClick={() => setOpenSort(!openSort)}
+  >
+    RECOMMENDED ▾
+  </button>
+
+  {openSort && (
+    <ul className="sort-dropdown">
+      <li onClick={() => { setSortBy("recommended"); setOpenSort(false); }}>
+        Recommended
+      </li>
+      <li onClick={() => { setSortBy("price-low"); setOpenSort(false); }}>
+        Price: Low to High
+      </li>
+      <li onClick={() => { setSortBy("price-high"); setOpenSort(false); }}>
+        Price: High to Low
+      </li>
+    </ul>
+  )}
+</div>
 </div>
 
 
@@ -53,7 +80,7 @@ export default function Home({ products }) {
         )}
 
         <section className="products">
-          <ProductGrid products={products} />
+<ProductGrid products={sortedProducts} />
         </section>
       </main>
 
