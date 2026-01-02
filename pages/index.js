@@ -24,8 +24,7 @@ export default function Home({ products }) {
       <Header />
       <Hero />
 
-      {/* TOP BAR ABOVE GRID */}
-      {/* DESKTOP TOOLBAR */}
+    
 <div className="plp-toolbar desktop-toolbar">
   <span className="item-count">3425 ITEMS</span>
 
@@ -39,7 +38,7 @@ export default function Home({ products }) {
   <span className="recommended">RECOMMENDED ▾</span>
 </div>
 
-{/* MOBILE TOOLBAR */}
+
 <div className="plp-toolbar mobile-toolbar">
   <span className="filter-btn">FILTER</span>
   <span className="recommended">RECOMMENDED ▾</span>
