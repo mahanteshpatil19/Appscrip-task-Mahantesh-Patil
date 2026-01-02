@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        {/* Hamburger – MOBILE */}
+
         <div
           className="hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -24,10 +24,8 @@ export default function Header() {
           <li>CONTACT US</li>
         </ul>
 
-        {/* Logo */}
         <div className="logo">LOGO</div>
 
-        {/* Icons */}
         <div className="nav-right">
           <span>🔍</span>
           <span>♡</span>
@@ -37,7 +35,6 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
       {menuOpen && (
         <div className="mobile-menu">
           <ul>
