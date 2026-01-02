@@ -1,0 +1,49 @@
+.productCard {
+  border: 1px solid #eee;
+  padding: 12px;
+  position: relative;
+  background: #fff;
+}
+
+.productCard img {
+  height: 280px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.productCard h2 {
+  font-size: 12px;
+  font-weight: 400;
+  color: #222;
+}
+
+.productCard p {
+  font-size: 12px;
+  color: #555;
+}
+
+.wishlist {
+  color: #aaa;
+}
+
+
+
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+
+  .productCard img {
+    height: 180px;
+  }
+}
+
