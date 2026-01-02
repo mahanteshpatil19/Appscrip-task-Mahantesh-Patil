@@ -60,15 +60,40 @@ export default function Home({ products }) {
     </>
   );
 }
-
 export async function getStaticProps() {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const products = await res.json();
+  let products = [];
+
+  try {
+    const res = await fetch("https://fakestoreapi.com/products");
+
+    if (!res.ok) {
+      throw new Error("API failed");
+    }
+
+    products = await res.json();
+  } catch (error) {
+    console.error("Using fallback product data", error);
+
+    // fallback mock data (important for Netlify build)
+    products = [
+      {
+        id: 1,
+        title: "Recycled Backpack",
+        price: 109.95,
+        image: "/products/bag1.jpg",
+      },
+      {
+        id: 2,
+        title: "Premium Cotton T-Shirt",
+        price: 22.3,
+        image: "/products/shirt1.jpg",
+      },
+    ];
+  }
 
   return {
-    props: {
-      products,
-    },
+    props: { products },
   };
 }
+
 
