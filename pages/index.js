@@ -6,6 +6,8 @@ import Filters from "../components/Filters";
 import ProductGrid from "../components/ProductGrid";
 import Footer from "../components/Footer";
 
+import productsData from "../data/products"; 
+
 export default function Home({ products }) {
   const [showFilter, setShowFilter] = useState(true);
 
@@ -64,9 +66,8 @@ export default function Home({ products }) {
 export async function getStaticProps() {
   return {
     props: {
-      products,
+      products: productsData, 
     },
   };
 }
-
 
